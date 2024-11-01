@@ -1,0 +1,67 @@
+<!-- headerdiv.html -->
+
+
+<div id="rtechnamediv">
+  <a href="http://127.0.0.1:3001/index.html" id="logo-link">
+
+    <img id="rtechlogo" src="rtechlogo.png" alt="ReinhardtTech Logo" />
+
+  </a>
+
+
+  <div id="name-slogan">
+    <span id="rtechname">REINHARDTTECH APP</span>
+    <br />
+    <span id="rtechslogan">The Blockchain Everything-App!</span>
+  </div>
+
+  <div class="controls-container">
+    <div class="top-controls">
+      <!-- Background selector -->
+      <select id="background-select" onchange="selectBackgroundImage()">
+        <option value="0">-bg-</option>
+        <option value="/images/shenzenphotos/1.jpg">1</option>
+        <option value="/images/shenzenphotos/2.jpg">2</option>
+        <option value="/images/shenzenphotos/3.jpg">3</option>
+        <option value="/images/shenzenphotos/4.jpg">4</option>
+        <option value="/images/shenzenphotos/5.jpg">5</option>
+        <option value="/images/shenzenphotos/6.jpg">6</option>
+        <option value="/images/shenzenphotos/7.jpg">7</option>
+        <option value="/images/shenzenphotos/8.jpg">8</option>
+        <option value="/images/shenzenphotos/9.jpg">9</option>
+        <option value="/images/shenzenphotos/10.jpg">10</option>
+        <option value="11">1 - 10</option>
+        <option value="12">Rand</option>
+      </select>
+
+      <!-- Theme toggle button -->
+      <span id="theme-toggle-button" class="icon material-symbols-rounded">light_mode</span>
+    </div>
+
+    <!-- Music selector -->
+    <select id="bgmusic-select" onchange="selectBackgroundMusic()">
+      <option value="0">Select Music</option>
+      <option value="/bgmusic/1.mp3">Track 1</option>
+      <option value="/bgmusic/2.mp3">Track 2</option>
+      <option value="/bgmusic/3.mp3">Track 3</option>
+      <option value="/bgmusic/4.mp3">Track 4</option>
+      <option value="/bgmusic/5.mp3">Track 5</option>
+      <option value="/bgmusic/6.mp3">Track 6</option>
+      <option value="/bgmusic/7.mp3">Track 7</option>
+      <option value="/bgmusic/8.mp3">Track 8</option>
+      <option value="/bgmusic/9.mp3">Track 9</option>
+      <option value="/bgmusic/10.mp3">Track 10</option>
+      <option value="11">Sequence</option>
+      <option value="12">Random</option>
+    </select>
+
+    <!-- Volume slider for music -->
+    <label for="volume-slider"></label>
+    <input type="range" id="volume-slider" min="0" max="100" value="50" oninput="setVolume(this.value)">
+  </div>
+
+  <audio id="bgmusic-player" controls style="display: none;"></audio>
+
+
+
+</div>

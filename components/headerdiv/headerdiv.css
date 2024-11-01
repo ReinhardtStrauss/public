@@ -1,0 +1,118 @@
+/* mainnavdiv.css */
+
+.body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.dropdown-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: stretch; /* Stretch buttons to fill container */
+    width: 100%; /* Full width */
+}
+
+.dropdown-btn {
+    flex: 1; /* Allow buttons to grow/shrink as needed */
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 10px;
+    position: relative;
+    transition: text-shadow 0.3s; /* Smooth transition for text-shadow */
+}
+
+.dropdown-btn:hover {
+    text-shadow: 0 0 8px #ffffff;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.dropdown-btn:focus + .dropdown-content,
+.dropdown-btn:hover + .dropdown-content {
+    display: block;
+}
+
+#aaabuttons {
+    background-color: rgba(76, 0, 130, 0.7);
+    color: white;
+    border: none;
+    min-width: 200px;
+    max-width: 250px;
+    width: max-content;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: opacity 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    text-shadow: 0 0 2px #ffffff;
+}
+
+#aaabuttons:hover {
+    box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.7);
+    text-shadow: 0 0 12px #ffffff;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 600px) {
+    .dropdown-container {
+        flex-direction: row; /* Change to row layout on wider screens */
+        flex-wrap: wrap; /* Allow buttons to wrap */
+    }
+
+    .dropdown-btn {
+        flex: 1 1 calc(33.33% - 10px); /* Adjust button width on larger screens */
+        margin: 5px; /* Add margin around buttons */
+    }
+}
+
+
+
+
+:root {
+    /* Dark mode colors */
+    --text-color: #E3E3E3;
+    --subheading-color: #828282;
+    --placeholder-color: #A6A6A6;
+    --primary-color: #242424;
+    --secondary-color: #383838;
+    --secondary-hover-color: #444;
+    --background-color: #121212; /* Dark mode background */
+}
+  
+  .light_mode {
+    /* Light mode colors */
+    --text-color: #222;
+    --subheading-color: #A0A0A0;
+    --placeholder-color: #6C6C6C;
+    --primary-color: #FFF;
+    --secondary-color: #E9EEF6;
+    --secondary-hover-color: #DBE1EA;
+    --background-color: #FFFFFF; /* Light mode background */
+}
+
+  /* Icon style */
+.icon {
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+

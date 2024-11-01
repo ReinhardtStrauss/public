@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIDI Player from BitMidi</title>
+
+  <!-- Basic CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f9f9f9;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <button id="play-btn">Play MIDI</button>
+
+  <!-- Include Tone.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.js"></script>
+
+  <!-- JavaScript to play MIDI from BitMidi -->
+  <script>
+    document.getElementById('play-btn').addEventListener('click', async function() {
+      // Load MIDI file from BitMidi
+      const midiUrl = "https://bitmidi.com/uploads/27545.mid";  // Example link
+
+      // Fetch the MIDI file
+      const response = await fetch(midiUrl);
+      const arrayBuffer = await response.arrayBuffer();
+
+      // Parse the MIDI file with Tone.js
+      const midi = new Tone.Midi(arrayBuffer);
+
+      // Set up a synth to play the notes
+      const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+
+      // Schedule each note in the MIDI file to be played
+      midi.tracks.forEach(track => {
+        track.notes.forEach(note => {
+          synth.triggerAttackRelease(
+            note.name,         // Note name (e.g., "C4", "D#5")
+            note.duration,     // Duration of the note
+            note.time          // When the note should be played
+          );
+        });
+      });
+
+      // Start Tone.js's Transport to trigger scheduled events
+      Tone.Transport.start();
+    });
+  </script>
+</body>
+</html>
